@@ -5,7 +5,7 @@ Param(
     [string]$ReleaseFilenamePattern="*.zip",
     [bool]$PreRelease=$false
 )
-{
+
     #$filenamePattern = "*x86_64.zip"
     $filenamePattern = $ReleaseFilenamePattern
     $pathExtract = "$DestinationPath/PFProfile"
@@ -37,4 +37,4 @@ Param(
     }
 
     Remove-Item $pathZip -Force
-}
+
