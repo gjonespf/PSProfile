@@ -44,10 +44,12 @@ function Install-PSGithubRelease {
     {
         # releaseTemp
         $tempPath = $([System.IO.Path]::GetTempPath())
+        $releaseVersion = $(Split-Path -Path $downloadUri -Leaf)
         $releaseTempRelative = $GithubRepo + "/" + $(Split-Path -Path $downloadUri -Leaf)
         $releasePath = Join-Path -Path $tempPath -ChildPath $GithubRepo
         $pathZip = Join-Path -Path $tempPath -ChildPath "$releaseTempRelative.zip"
         $_ = New-Item -ItemType Directory -Path $releasePath -Force -ErrorAction SilentlyContinue
+        Write-Host "Downloading $GithubRepo release: $releaseVersion"
         Invoke-WebRequest -Uri $downloadUri -Out $pathZip
 
         Remove-Item -Path $pathExtract -Recurse -Force -ErrorAction SilentlyContinue
@@ -68,6 +70,8 @@ function Install-PSGithubRelease {
         else {
             Expand-Archive -Path $pathZip -DestinationPath $pathExtract -Force
         }
+
+        Write-Host "Release: $GithubRepo $releaseVersion has been installed"
 
         Remove-Item $pathZip -Force
     }
