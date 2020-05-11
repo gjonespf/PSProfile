@@ -13,6 +13,9 @@ function Install-PSGithubRelease {
     $pathExtract = Join-Path $DestinationPath -ChildPath "PFProfile"
     $innerDirectory = $true
 
+    # To fix needing TLS1.2 by default
+    [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+
     # Check repo exists
     # GET /repos/:owner/:repo
     $repoExistsUri = "https://api.github.com/repos/$GithubRepo"
