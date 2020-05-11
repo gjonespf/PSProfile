@@ -7,10 +7,11 @@ $bootstrapUrl = "https://raw.githubusercontent.com/gjonespf/PSProfile/master/PFH
 Invoke-WebRequest -Uri $bootstrapUrl -Out "Install-PSGithubRelease.ps1"
 
 # All the defaults are set for this to "Just Work (tm)":
-./Install-PSGithubRelease.ps1
+. ./Install-PSGithubRelease.ps1
+Install-PSGithubRelease
 
 # Or if you want the absolute bleeding edge:
-.\Install-PSGithubRelease.ps1 -PreRelease $true
+Install-PSGithubRelease -PreRelease $true
 
 # Then add to profile
 notepad $Profile
