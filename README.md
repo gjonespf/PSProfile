@@ -12,7 +12,7 @@ Invoke-WebRequest -Uri $bootstrapUrl -Out "Install-PSGithubRelease.ps1"
 notepad $Profile
 
 # Add the following:
-# . ./PFProfile/PFHelpers.ps1
+# . "~/Documents/WindowsPowerShell/PFProfile/PFHelpers/PFHelpers.ps1"
 
 # To update later, simply run:
 Install-PSGithubRelease
