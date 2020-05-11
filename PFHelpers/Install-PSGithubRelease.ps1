@@ -1,11 +1,12 @@
-[CmdletBinding()]
-Param(
-    [string]$GithubRepo = "gjonespf/PSProfile",
-    [string]$DestinationPath = (Join-Path $Home -ChildPath "/Documents/WindowsPowerShell"),
-    [string]$ReleaseFilenamePattern="*.zip",
-    [bool]$PreRelease=$false,
-    [bool]$UseZipball=$true
-)
+function Install-PSGithubRelease {
+    [CmdletBinding()]
+    Param(
+        [string]$GithubRepo = "gjonespf/PSProfile",
+        [string]$DestinationPath = (Join-Path $Home -ChildPath "/Documents/WindowsPowerShell"),
+        [string]$ReleaseFilenamePattern="*.zip",
+        [bool]$PreRelease=$false,
+        [bool]$UseZipball=$true
+    )
 
     #$filenamePattern = "*x86_64.zip"
     $filenamePattern = $ReleaseFilenamePattern
@@ -73,4 +74,4 @@ Param(
     else {
         Write-Warning "Could not get latest release, please check the repo has an available release and try again ($GithubRepo)"
     }
-
+}
