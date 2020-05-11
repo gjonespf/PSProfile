@@ -3,6 +3,8 @@
 ```pwsh
 # First install/copy local
 cd ~
+# Ensure there's a new powershell dir
+$_ = New-Item -ItemType Directory -Path ~\Documents\WindowsPowerShell -Force
 $bootstrapUrl = "https://raw.githubusercontent.com/gjonespf/PSProfile/master/PFHelpers/Install-PSGithubRelease.ps1"
 Invoke-WebRequest -Uri $bootstrapUrl -Out "Install-PSGithubRelease.ps1"
 
