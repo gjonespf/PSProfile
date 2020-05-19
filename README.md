@@ -1,6 +1,9 @@
 # PSProfile
 
 ```pwsh
+# To fix needing TLS1.2 by default
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+
 # First install/copy local
 cd ~
 # Ensure there's a new powershell dir
